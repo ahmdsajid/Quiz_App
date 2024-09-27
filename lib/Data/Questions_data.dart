@@ -1,6 +1,6 @@
 import 'package:quiz_app/Models/Quiz_question.dart';
 
-var Questions = [
+var questions = [
 
   QuizQuestion("What is Flutter?", [
     "An UI toolkit for app development",

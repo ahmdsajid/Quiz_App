@@ -34,19 +34,19 @@ class MyIntro extends StatelessWidget {
                 'assets/images/quiz-app.png',
                 width: 300,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               OutlinedButton(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> Questions()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> const Questions()));
               },
 
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white,
-                side: BorderSide(color: Colors.white, width: 3)
+                side: const BorderSide(color: Colors.white, width: 3)
                 ),
 
-              child: Text('Start Quiz',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+              child: const Text('Start Quiz',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
               )
             ],
           ),

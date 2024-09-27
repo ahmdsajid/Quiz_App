@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/Data/Questions_data.dart';
+import 'package:quiz_app/reusable_widget/Answere_button.dart';
+
 
 class Questions extends StatefulWidget {
   const Questions({super.key});
@@ -8,8 +11,12 @@ class Questions extends StatefulWidget {
 }
 
 class _QuestionsState extends State<Questions> {
+
   @override
   Widget build(BuildContext context) {
+  
+final currentquestion = questions[0];
+
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -23,14 +30,17 @@ class _QuestionsState extends State<Questions> {
 
         ], begin: Alignment.topLeft, end: Alignment.bottomRight),
         ),
-        child: const Column(
+        child:  Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-          Text("Questions"),
+          Text(currentquestion.Text,style: TextStyle(color: Colors.white,fontSize: 20),),
           SizedBox(height: 40,),
 
-          
+          AnswereButton(Answeretext: currentquestion.Answere[0], ontap: () {  },),
+          AnswereButton(Answeretext: currentquestion.Answere[1], ontap: () {  },),
+          AnswereButton(Answeretext: currentquestion.Answere[2], ontap: () {  },),
+          AnswereButton(Answeretext: currentquestion.Answere[3], ontap: () {  },),
           
         ],),
     ),
