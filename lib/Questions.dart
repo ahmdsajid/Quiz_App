@@ -15,14 +15,25 @@ class _QuestionsState extends State<Questions> {
         width: double.infinity,
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
-          Colors.purple.shade600,
-          Colors.teal.shade500,
-          Colors.teal.shade700,
-          Colors.teal.shade500,
-          Colors.purple.shade600,
+          Colors.purple.shade500,
+          Colors.indigo.shade600,
+          Colors.indigo.shade800,
+          Colors.indigo.shade600,
+          Colors.purple.shade500,
 
-        ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
-    )
+        ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+        ),
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+          Text("Questions"),
+          SizedBox(height: 40,),
+
+          
+          
+        ],),
+    ),
     );
   }
 }
