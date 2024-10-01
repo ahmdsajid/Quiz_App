@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:quiz_app/Data/Questions_data.dart';
 import 'package:quiz_app/reusable_widget/Answere_button.dart';
@@ -30,19 +32,24 @@ final currentquestion = questions[0];
 
         ], begin: Alignment.topLeft, end: Alignment.bottomRight),
         ),
-        child:  Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-
-          Text(currentquestion.Text,style: TextStyle(color: Colors.white,fontSize: 20),),
-          SizedBox(height: 40,),
-
-          AnswereButton(Answeretext: currentquestion.Answere[0], ontap: () {  },),
-          AnswereButton(Answeretext: currentquestion.Answere[1], ontap: () {  },),
-          AnswereButton(Answeretext: currentquestion.Answere[2], ontap: () {  },),
-          AnswereButton(Answeretext: currentquestion.Answere[3], ontap: () {  },),
+        child:  Container(
+          margin: EdgeInsets.all(30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
           
-        ],),
+            Text(currentquestion.Text,style: TextStyle(color: Colors.white,fontSize: 20),
+            textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 40,),
+          
+            ...currentquestion.Answere.map((answer){
+              return AnswereButton(Answeretext: answer, ontap: (){});
+            })
+            
+          ],),
+        ),
     ),
     );
   }

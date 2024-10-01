@@ -37,7 +37,7 @@ class MyIntro extends StatelessWidget {
               const SizedBox(
                 height: 100,
               ),
-              OutlinedButton(onPressed: () {
+              OutlinedButton.icon(onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const Questions()));
               },
 
@@ -46,7 +46,10 @@ class MyIntro extends StatelessWidget {
                 side: const BorderSide(color: Colors.white, width: 3)
                 ),
 
-              child: const Text('Start Quiz',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+                icon: Icon(Icons.arrow_right,size: 30,),
+                label: Text("Start Quiz",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+
+              //child: const Text('Start Quiz',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
               )
             ],
           ),
