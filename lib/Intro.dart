@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/Questions.dart';
 
 class MyIntro extends StatelessWidget {
-  const MyIntro({super.key});
+  const MyIntro(this.StartQuiz,{super.key});
+
+  final void Function() StartQuiz;
 
   @override
   Widget build(BuildContext context) {

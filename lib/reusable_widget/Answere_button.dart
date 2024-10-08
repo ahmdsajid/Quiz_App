@@ -8,15 +8,18 @@ final void Function()ontap;
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: ontap, 
-    
-    style: ElevatedButton.styleFrom(
-      padding: EdgeInsets.symmetric(vertical: 10,horizontal: 40),
-      backgroundColor: Colors.teal[700],
-      foregroundColor: Colors.white,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
-    ),
-
-    child: Text(Answeretext));
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: ElevatedButton(onPressed: ontap, 
+      
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 40),
+        backgroundColor: Colors.teal[700],
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+      ),
+      
+      child: Text(Answeretext,style: TextStyle(fontSize: 15),)),
+    );
   }
 }

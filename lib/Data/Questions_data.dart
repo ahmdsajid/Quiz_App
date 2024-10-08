@@ -17,7 +17,7 @@ var questions = [
   ]),
 
   QuizQuestion("What is the widget tree in Flutter?", [
-    "A structure that represents the hierarchy of widgets",
+    "A structure of hierarchy of widgets",
     "A database for storing widgets",
     "A collection of unused widgets",
     "A testing tool for widgets"
