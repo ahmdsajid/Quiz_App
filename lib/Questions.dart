@@ -4,7 +4,9 @@ import 'package:quiz_app/reusable_widget/Answere_button.dart';
 
 
 class Questions extends StatefulWidget {
-  const Questions({super.key});
+  const Questions({super.key, required this.onselectanswer});
+
+  final void Function(String answer) onselectanswer;
 
   @override
   State<Questions> createState() => _QuestionsState();
@@ -14,7 +16,8 @@ class _QuestionsState extends State<Questions> {
 
   var currentQuestionIndex = 0;
 
-  void answerQuestion(){
+  void answerQuestion(String selectAnswer){
+    widget.onselectanswer(selectAnswer);
     setState(() {
       currentQuestionIndex++;
     });
@@ -23,7 +26,7 @@ class _QuestionsState extends State<Questions> {
   @override
   Widget build(BuildContext context) {
   
-final currentquestion = questions[currentQuestionIndex];
+var currentquestion = questions[currentQuestionIndex];
 
     return Scaffold(
       appBar: AppBar(
@@ -58,7 +61,9 @@ final currentquestion = questions[currentQuestionIndex];
             SizedBox(height: 30,),
           
             ...currentquestion.getshuffledAnswer().map((answer){
-              return AnswereButton(Answeretext: answer, ontap: answerQuestion);
+              return AnswereButton(Answeretext: answer, ontap: (){
+                answerQuestion(answer);
+              });
             })
             
           ],),

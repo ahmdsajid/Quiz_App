@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/Questions.dart';
 
+
 class MyIntro extends StatelessWidget {
   const MyIntro(this.StartQuiz,{super.key});
 
@@ -40,7 +41,7 @@ class MyIntro extends StatelessWidget {
                 height: 100,
               ),
               OutlinedButton.icon(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> const Questions()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> Questions(onselectanswer: (String answer) {  },)));
               },
 
               style: OutlinedButton.styleFrom(
