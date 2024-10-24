@@ -19,14 +19,20 @@ class _QuestionsState extends State<Questions> {
   void answerQuestion(String selectAnswer){
     widget.onselectanswer(selectAnswer);
     setState(() {
-      currentQuestionIndex++;
+      // Check if we have reached the last question
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+      } else {
+        // Navigate to the intro page or another screen
+        Navigator.of(context).pop();
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
   
-var currentquestion = questions[currentQuestionIndex];
+final currentquestion = questions[currentQuestionIndex];
 
     return Scaffold(
       appBar: AppBar(

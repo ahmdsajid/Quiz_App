@@ -58,6 +58,7 @@ class _QuizState extends State<Quiz> {
          ], begin: Alignment.topLeft, end: Alignment.bottomRight)
         ),
         child: ActiveScreen == "intro-screen"? MyIntro(SwitchScreen) : Questions(onselectanswer: chooseAnswer,),
+        
       ),
      ),
     );
