@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/Questions.dart';
 
 
 class MyIntro extends StatelessWidget {
