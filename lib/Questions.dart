@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/Data/Questions_data.dart';
 import 'package:quiz_app/reusable_widget/Answere_button.dart';
 
-
 class Questions extends StatefulWidget {
-  const Questions({super.key, required this.onselectanswer});
+  const Questions({super.key, required this.onSelectAnswer});
 
-  final void Function(String answer) onselectanswer;
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<Questions> createState() => _QuestionsState();
@@ -17,64 +16,51 @@ class _QuestionsState extends State<Questions> {
   var currentQuestionIndex = 0;
 
   void answerQuestion(String selectAnswer){
-    widget.onselectanswer(selectAnswer);
+    widget.onSelectAnswer(selectAnswer);
     setState(() {
-      // Check if we have reached the last question
-      if (currentQuestionIndex < questions.length - 1) {
-        currentQuestionIndex++;
-      } else {
-        // Navigate to the intro page or another screen
-        Navigator.of(context).pop();
-      }
+      currentQuestionIndex++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-  
-final currentquestion = questions[currentQuestionIndex];
+
+  final currentQuestion = questions[currentQuestionIndex];
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.purple.shade400,
-        elevation: 0,
-        title: Text("Flutter Quiz"),
-      ),
-
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-          Colors.purple.shade500,
-          Colors.indigo.shade600,
-          Colors.indigo.shade800,
-          Colors.indigo.shade600,
-          Colors.purple.shade500,
-
-        ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-        ),
-        child:  Container(
-         
-          margin: EdgeInsets.all(30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-          
-            Text(currentquestion.Text,style: TextStyle(color: Colors.white,fontSize: 20),
-            textAlign: TextAlign.center,
+        body: Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+        Colors.deepPurpleAccent.shade200,
+        Colors.deepPurple.shade500,
+        Colors.deepPurple.shade900,
+        Colors.deepPurple.shade500,
+        Colors.deepPurpleAccent.shade200
+      ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+      child:  Container(
+        margin: EdgeInsets.all(30),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+        
+            Text(currentQuestion.Text, style: TextStyle(color: Colors.white),
+              textAlign: TextAlign.center,
             ),
             SizedBox(height: 30,),
-          
-            ...currentquestion.getshuffledAnswer().map((answer){
-              return AnswereButton(Answeretext: answer, ontap: (){
+        
+            ...currentQuestion.getshuffledAnswer().map((answer){
+              return AnswerButton(answerText: answer, ontap: (){
                 answerQuestion(answer);
               });
             })
-            
-          ],),
+        
+        
+        
+          ],
         ),
-    ),
-    );
+      ),
+    ));
   }
 }

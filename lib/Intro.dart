@@ -40,9 +40,7 @@ class MyIntro extends StatelessWidget {
               const SizedBox(
                 height: 100,
               ),
-              OutlinedButton.icon(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> Questions(onselectanswer: (String answer) {  },)));
-              },
+              OutlinedButton.icon(onPressed: StartQuiz,
 
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white,
