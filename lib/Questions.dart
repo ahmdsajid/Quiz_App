@@ -14,11 +14,24 @@ class Questions extends StatefulWidget {
 class _QuestionsState extends State<Questions> {
 
   var currentQuestionIndex = 0;
+  List<String?> answers =List.filled(15, null);
 
   void answerQuestion(String selectAnswer){
     widget.onSelectAnswer(selectAnswer);
     setState(() {
-      currentQuestionIndex++;
+      answers[currentQuestionIndex] = selectAnswer;
+      if(currentQuestionIndex < questions.length -1){
+        currentQuestionIndex++;
+      }
+      
+    });
+  }
+
+  void previousQuestion(){
+    setState(() {
+      if(currentQuestionIndex>0){
+        currentQuestionIndex--;
+      }
     });
   }
 
@@ -45,7 +58,7 @@ class _QuestionsState extends State<Questions> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
         
-            Text(currentQuestion.Text, style: TextStyle(color: Colors.white),
+            Text(currentQuestion.Text, style: TextStyle(color: Colors.white, fontSize: 20),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 30,),
@@ -54,9 +67,37 @@ class _QuestionsState extends State<Questions> {
               return AnswerButton(answerText: answer, ontap: (){
                 answerQuestion(answer);
               });
-            })
-        
-        
+            }),
+
+            SizedBox(height: 20,),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              ElevatedButton(
+                onPressed: currentQuestionIndex > 0 ? previousQuestion : null , 
+                child: Row(
+                  children: [
+                    Icon(Icons.arrow_back),
+                    SizedBox(width: 10,),
+                    Text("Back",style: TextStyle(fontSize: 15),),
+                  ],
+                ),
+                style: ElevatedButton.styleFrom(
+                  //fixedSize: Size(100, 50)
+
+                )
+                
+              ),
+
+              // ElevatedButton(
+              //   onPressed: answers[currentQuestionIndex] != null && currentQuestionIndex < questions.length - 1 ? 
+              //   () => answerQuestion(answers[currentQuestionIndex] ! ) 
+              //   : null, 
+              //   child: Text("Next"),
+              // )
+            ],)
+
         
           ],
         ),
