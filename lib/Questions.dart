@@ -76,14 +76,17 @@ class _QuestionsState extends State<Questions> {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 40,
                 ),
                 ...currentQuestion.getshuffledAnswer().map((answer) {
-                  return AnswerButton(
-                      answerText: answer,
-                      ontap: () {
-                        answerQuestion(answer);
-                      });
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: AnswerButton(
+                        answerText: answer,
+                        ontap: () {
+                          answerQuestion(answer);
+                        }),
+                  );
                 }),
                 SizedBox(
                   height: 20,

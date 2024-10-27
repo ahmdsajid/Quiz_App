@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quiz_app/Data/Questions_data.dart';
 import 'package:quiz_app/Queston_Summary.dart';
 import 'package:quiz_app/Quiz.dart';
@@ -33,6 +34,7 @@ class ResultScreen extends StatelessWidget {
 
     return Scaffold(
       body: Container(
+        height: 700.h,
         width: double.infinity,
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
@@ -46,24 +48,26 @@ class ResultScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 30, right: 30, top: 50),
+              padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
               child: Text(
                 "You Have Answered $numCorrectAnswer out of $numTotalQuestion Correctly",
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 25.sp,
                   color: Colors.orange,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(
-              height: 30,
+             SizedBox(
+              height: 30.h,
             ),
             QuestionSummary(summaryData: summaryData),
-            const SizedBox(
-              height: 30,
+             SizedBox(
+              height: 30.h,
             ),
+      
+      
             ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context)=> Quiz()));
@@ -72,7 +76,7 @@ class ResultScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(Icons.restart_alt,color: Colors.black,),
-                SizedBox(width: 8,),
+                SizedBox(width: 8.w,),
                 Text('Restart Quiz',style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.bold),),
               ],
             ),
